@@ -6,7 +6,7 @@ class MyConstant {
   static String publicKey = '';
   static String secretKey = '';
 
-  static String routeStart = '/start';
+  static String routeLanding = '/landingPage';
 
   static Color primary = const Color(0xff87861d);
   static Color dark = const Color(0xff575900);
@@ -35,6 +35,61 @@ class MyConstant {
   static String bills = 'assets/images/bill.png';
 
   static String fontFamily = 'Prompt';
+
+  TextAlign textAlignCenter() => TextAlign.center;
+
+  TextStyle h1StyleLightTheme() => TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: dark,
+      fontFamily: fontFamily);
+  TextStyle h1StyleDarkTheme() => TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: light,
+      fontFamily: fontFamily);
+  TextStyle h2StyleLightTheme() => TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: dark,
+      fontFamily: fontFamily);
+  TextStyle h2StyleDarkTheme() => TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: light,
+      fontFamily: fontFamily);
+  TextStyle h3StyleLightTheme() => TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: dark,
+      fontFamily: fontFamily);
+  TextStyle h3StyleDarkTheme() => TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: light,
+      fontFamily: fontFamily);
+  TextStyle b1StyleLightTheme() => TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.bold,
+      color: dark,
+      fontFamily: fontFamily);
+  TextStyle b1StyleDarkTheme() => TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.bold,
+      color: light,
+      fontFamily: fontFamily);
+  TextStyle toolTips() => TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        color: dark,
+        fontFamily: fontFamily,
+      );
+  TextStyle hBtnStyle() => TextStyle(
+        fontSize: 22,
+        color: dark,
+        fontWeight: FontWeight.w700,
+        fontFamily: fontFamily,
+      );
 
   TextStyle h1Style() => TextStyle(
         fontSize: 24,
