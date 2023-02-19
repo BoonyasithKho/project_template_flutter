@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../utils/my_constant.dart';
 
 class ShowTitle extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
-  const ShowTitle({super.key, required this.title, this.textStyle});
+  final TextAlign? textAlign;
+
+  const ShowTitle({super.key, required this.title, this.textStyle, this.textAlign});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
       style: textStyle ?? MyConstant().h3Style(),
+      textAlign: textAlign ?? TextAlign.left,
     );
   }
 }

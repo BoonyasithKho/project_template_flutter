@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../widgets/show_image.dart';
 import '../widgets/show_title.dart';
@@ -11,8 +8,7 @@ class MyDialog {
   final Function()? funcAction;
   MyDialog({this.funcAction});
 
-  Future<void> normalDialog(
-      BuildContext context, String title, String message) async {
+  Future<void> normalDialog(BuildContext context, String title, String message) async {
     showDialog(
       context: context,
       builder: (context) => SimpleDialog(
@@ -53,16 +49,14 @@ class MyDialog {
     );
   }
 
-  Future<void> actionDialog(
-      BuildContext context, String title, String message) async {
+  Future<void> actionDialog(BuildContext context, String title, String message) async {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: ListTile(
           leading: ShowImage(path: MyConstant.image1),
           title: ShowTitle(title: title, textStyle: MyConstant().h2Style()),
-          subtitle:
-              ShowTitle(title: message, textStyle: MyConstant().h3Style()),
+          subtitle: ShowTitle(title: message, textStyle: MyConstant().h3Style()),
         ),
         actions: [
           TextButton(

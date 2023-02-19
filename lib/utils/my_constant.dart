@@ -31,8 +31,6 @@ class MyConstant {
   static String image3 = 'assets/images/image3.png';
   static String image4 = 'assets/images/image4.png';
   static String image5 = 'assets/images/image5.png';
-  static String urlPrompay = '';
-  static String bills = '';
 
   static String fontFamily = 'Prompt';
 

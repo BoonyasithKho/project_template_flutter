@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:provider/provider.dart';
 
 import '../utils/my_constant.dart';
 import '../utils/my_theme.dart';
@@ -22,7 +19,7 @@ class _LandingPageState extends State<LandingPage> {
       appBar: AppBar(
         title: ShowTitle(
           title: MyConstant.appName,
-          textStyle: Theme.of(context).textTheme.headline1,
+          textStyle: Theme.of(context).textTheme.displayLarge,
         ),
         backgroundColor: Theme.of(context).primaryColor,
         actions: const [
