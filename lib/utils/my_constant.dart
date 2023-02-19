@@ -31,53 +31,21 @@ class MyConstant {
   static String image3 = 'assets/images/image3.png';
   static String image4 = 'assets/images/image4.png';
   static String image5 = 'assets/images/image5.png';
-  static String urlPrompay = 'https://promptpay.io/0996170176.png';
-  static String bills = 'assets/images/bill.png';
+  static String urlPrompay = '';
+  static String bills = '';
 
   static String fontFamily = 'Prompt';
 
   TextAlign textAlignCenter() => TextAlign.center;
 
-  TextStyle h1StyleLightTheme() => TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      color: dark,
-      fontFamily: fontFamily);
-  TextStyle h1StyleDarkTheme() => TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      color: light,
-      fontFamily: fontFamily);
-  TextStyle h2StyleLightTheme() => TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      color: dark,
-      fontFamily: fontFamily);
-  TextStyle h2StyleDarkTheme() => TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      color: light,
-      fontFamily: fontFamily);
-  TextStyle h3StyleLightTheme() => TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-      color: dark,
-      fontFamily: fontFamily);
-  TextStyle h3StyleDarkTheme() => TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-      color: light,
-      fontFamily: fontFamily);
-  TextStyle b1StyleLightTheme() => TextStyle(
-      fontSize: 10,
-      fontWeight: FontWeight.bold,
-      color: dark,
-      fontFamily: fontFamily);
-  TextStyle b1StyleDarkTheme() => TextStyle(
-      fontSize: 10,
-      fontWeight: FontWeight.bold,
-      color: light,
-      fontFamily: fontFamily);
+  TextStyle h1StyleLightTheme() => TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: dark, fontFamily: fontFamily);
+  TextStyle h1StyleDarkTheme() => TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: light, fontFamily: fontFamily);
+  TextStyle h2StyleLightTheme() => TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: dark, fontFamily: fontFamily);
+  TextStyle h2StyleDarkTheme() => TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: light, fontFamily: fontFamily);
+  TextStyle h3StyleLightTheme() => TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: dark, fontFamily: fontFamily);
+  TextStyle h3StyleDarkTheme() => TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: light, fontFamily: fontFamily);
+  TextStyle b1StyleLightTheme() => TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: dark, fontFamily: fontFamily);
+  TextStyle b1StyleDarkTheme() => TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: light, fontFamily: fontFamily);
   TextStyle toolTips() => TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
@@ -90,7 +58,6 @@ class MyConstant {
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
       );
-
   TextStyle h1Style() => TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
@@ -115,7 +82,6 @@ class MyConstant {
         color: Colors.blue,
         fontFamily: fontFamily,
       );
-
   TextStyle h2Style() => TextStyle(
         fontSize: 18,
         color: dark,
@@ -140,7 +106,6 @@ class MyConstant {
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
       );
-
   TextStyle h3Style() => TextStyle(
         fontSize: 14,
         color: dark,
@@ -165,14 +130,12 @@ class MyConstant {
         color: Colors.blue,
         fontFamily: fontFamily,
       );
-
   ButtonStyle btnStyle() => ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
         backgroundColor: MyConstant.primary,
       );
-
   BoxDecoration gradintLinearBackground() => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -180,11 +143,9 @@ class MyConstant {
           colors: [Colors.white, MyConstant.light, MyConstant.primary],
         ),
       );
-
   BoxDecoration planBackground() => BoxDecoration(
         color: MyConstant.light.withOpacity(0.75),
       );
-
   BoxDecoration gradientRadialBackground() => BoxDecoration(
         gradient: RadialGradient(
           center: const Alignment(0, -0.5),

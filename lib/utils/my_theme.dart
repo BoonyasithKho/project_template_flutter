@@ -11,10 +11,10 @@ class MyTheme {
     primaryColor: MyConstant.dark,
     iconTheme: IconThemeData(color: MyConstant.light),
     textTheme: TextTheme(
-      headline1: MyConstant().h1StyleDarkTheme(),
-      headline2: MyConstant().h2StyleDarkTheme(),
-      headline3: MyConstant().h3StyleDarkTheme(),
-      bodyText1: MyConstant().b1StyleLightTheme(),
+      displayLarge: MyConstant().h1StyleDarkTheme(),
+      displayMedium: MyConstant().h2StyleDarkTheme(),
+      displaySmall: MyConstant().h3StyleDarkTheme(),
+      bodyLarge: MyConstant().b1StyleLightTheme(),
     ),
   );
   static final lightTheme = ThemeData(
@@ -23,10 +23,10 @@ class MyTheme {
     primaryColor: MyConstant.light,
     iconTheme: IconThemeData(color: MyConstant.dark),
     textTheme: TextTheme(
-      headline1: MyConstant().h1StyleLightTheme(),
-      headline2: MyConstant().h2StyleLightTheme(),
-      headline3: MyConstant().h3StyleLightTheme(),
-      bodyText1: MyConstant().b1StyleLightTheme(),
+      displayLarge: MyConstant().h1StyleLightTheme(),
+      displayMedium: MyConstant().h2StyleLightTheme(),
+      displaySmall: MyConstant().h3StyleLightTheme(),
+      bodyLarge: MyConstant().b1StyleLightTheme(),
     ),
   );
 }
