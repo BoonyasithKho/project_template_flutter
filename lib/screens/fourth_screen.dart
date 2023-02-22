@@ -31,7 +31,7 @@ class _FourthScreenState extends State<FourthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: ShowTitle(
-          title: 'Fourth Page',
+          title: 'Fourth Screen',
           textStyle: Theme.of(context).textTheme.displayLarge,
         ),
         backgroundColor: Theme.of(context).primaryColor,

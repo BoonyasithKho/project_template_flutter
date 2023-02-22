@@ -11,6 +11,7 @@ class MyConstant {
   static String routeSecondScreen = '/secondScreen';
   static String routeThirdScreen = '/thirdScreen';
   static String routeFourthScreen = '/fourthScreen';
+  static String routeFifthScreen = '/fifthScreen';
 
   static Color primary = const Color(0xff87861d);
   static Color dark = const Color(0xff575900);

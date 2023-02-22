@@ -24,7 +24,7 @@ class _SecondScreenState extends State<SecondScreen> {
     return Scaffold(
       appBar: AppBar(
         title: ShowTitle(
-          title: 'Second Page',
+          title: 'Second Screen',
           textStyle: Theme.of(context).textTheme.displayLarge,
         ),
         backgroundColor: Theme.of(context).primaryColor,
