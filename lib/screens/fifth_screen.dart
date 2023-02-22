@@ -20,10 +20,10 @@ class FifthScreen extends StatefulWidget {
 
 class _FifthScreenState extends State<FifthScreen> {
   LatLng location = LatLng(13, 101.5);
-  LatLng location2 = LatLng(13.5, 101.5);
+  // LatLng location2 = LatLng(13.5, 101.5);
   bool mapZoom = false;
   MapController mapController = MapController();
-  List<Marker> ssss = [];
+  // List<Marker> ssss = [];
   List<APIData> apiData = [];
   List allLocPoint = [];
   final List<Marker> markers = [];
