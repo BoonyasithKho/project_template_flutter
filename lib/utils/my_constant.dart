@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class MyConstant {
   static String appName = 'Application Name';
-  static String domain = '';
+  static String domain = 'http://27.254.170.14/api1';
   static String publicKey = '';
   static String secretKey = '';
 
   static String routeLanding = '/landingPage';
+  static String routeFirstScreen = '/firstScreen';
+  static String routeSecondScreen = '/secondScreen';
+  static String routeThirdScreen = '/thirdScreen';
+  static String routeFourthScreen = '/fourthScreen';
 
   static Color primary = const Color(0xff87861d);
   static Color dark = const Color(0xff575900);
