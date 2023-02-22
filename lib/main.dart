@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/first_sceen.dart';
+import 'screens/second_screen.dart';
+import 'screens/third_screen.dart';
+import 'screens/fourth_screen.dart';
 import 'screens/landing_page.dart';
 import 'utils/my_constant.dart';
 import 'utils/my_theme.dart';
 
 final Map<String, WidgetBuilder> mapRoute = {
   '/landingPage': (context) => const LandingPage(),
+  '/firstScreen': (context) => const FirstScreen(),
+  '/secondScreen': (context) => const SecondScreen(),
+  '/thirdScreen': (context) => const ThirdScreen(),
+  '/fourthScreen': (context) => const FourthScreen(),
 };
 
 void main(List<String> args) {

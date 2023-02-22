@@ -27,7 +27,39 @@ class _LandingPageState extends State<LandingPage> {
         ],
       ),
       body: Center(
-        child: ShowImage(path: MyConstant.gistdaLogo),
+        child: Column(
+          children: [
+            ShowImage(path: MyConstant.gistdaLogo),
+            ElevatedButton(
+              onPressed: () {
+                print('Go to First Screen');
+                Navigator.pushNamed(context, MyConstant.routeFirstScreen);
+              },
+              child: const Text('First Screen'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Go to Second Screen');
+                Navigator.pushNamed(context, MyConstant.routeSecondScreen);
+              },
+              child: const Text('Second Screen'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Go to Third Screen');
+                Navigator.pushNamed(context, MyConstant.routeThirdScreen);
+              },
+              child: const Text('Third Screen'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Go to Fourth Screen');
+                Navigator.pushNamed(context, MyConstant.routeFourthScreen);
+              },
+              child: const Text('Fourth Screen'),
+            ),
+          ],
+        ),
       ),
     );
   }
