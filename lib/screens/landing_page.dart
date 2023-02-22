@@ -58,6 +58,13 @@ class _LandingPageState extends State<LandingPage> {
               },
               child: const Text('Fourth Screen'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                print('Go to Fifth Screen');
+                Navigator.pushNamed(context, MyConstant.routeFifthScreen);
+              },
+              child: const Text('Fifth Screen'),
+            ),
           ],
         ),
       ),

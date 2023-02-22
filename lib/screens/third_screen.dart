@@ -23,7 +23,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     return Scaffold(
       appBar: AppBar(
         title: ShowTitle(
-          title: 'Third Page',
+          title: 'Third Screen',
           textStyle: Theme.of(context).textTheme.displayLarge,
         ),
         backgroundColor: Theme.of(context).primaryColor,

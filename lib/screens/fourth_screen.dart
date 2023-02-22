@@ -34,7 +34,7 @@ class _FourthScreenState extends State<FourthScreen> {
 
       appBar: AppBar(
         title: ShowTitle(
-          title: 'Fourth Page',
+          title: 'Fourth Screen',
           textStyle: Theme.of(context).textTheme.displayLarge,
         ),
         backgroundColor: Theme.of(context).primaryColor,

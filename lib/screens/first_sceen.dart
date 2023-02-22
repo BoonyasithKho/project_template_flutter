@@ -19,7 +19,7 @@ class _FirstScreenState extends State<FirstScreen> {
     return Scaffold(
       appBar: AppBar(
         title: ShowTitle(
-          title: 'First Page',
+          title: 'First Screen',
           textStyle: Theme.of(context).textTheme.displayLarge,
         ),
         backgroundColor: Theme.of(context).primaryColor,
