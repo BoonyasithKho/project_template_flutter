@@ -1,7 +1,7 @@
 class APIData {
   final int id;
   final String geom;
-  final String descriptio;
+  final String description;
   final DateTime time;
   final String copyright;
   final String province;
@@ -12,6 +12,6 @@ class APIData {
   final String temperatureUnit;
   final String geojson;
 
-  APIData(this.id, this.geom, this.descriptio, this.time, this.copyright, this.province, this.stationname, this.rainfallValue, this.rainfallUnit, this.temperatureValue, this.temperatureUnit,
-      this.geojson);
+  APIData(this.id, this.geom, this.description, this.time, this.copyright, this.province, this.stationname, this.rainfallValue, this.rainfallUnit, this.temperatureValue,
+      this.temperatureUnit, this.geojson);
 }

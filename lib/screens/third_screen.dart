@@ -17,6 +17,19 @@ class ThirdScreen extends StatefulWidget {
 }
 
 class _ThirdScreenState extends State<ThirdScreen> {
+  Future getData() async {
+    var response = await http.get(Uri.parse(MyConstant.domain));
+    var jsonData = jsonDecode(response.body);
+    List<APIData> apiData = [];
+    for (var u in jsonData) {
+      APIData getData = APIData(u["id"].toInt(), u["geom"], u["descriptio"], DateTime.parse(u["time"]), u["copyright"], u["province"], u["stationnam"], u["rainfall_v"].toInt(),
+          u["rainfall_u"], u["temperatur"].toInt(), u["temperat_1"], u["geojson"]);
+      apiData.add(getData);
+    }
+    // print(apiData.length);
+    return apiData;
+  }
+
   @override
   Widget build(BuildContext context) {
     List allLocPoint = [];
@@ -47,9 +60,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
                 itemCount: snapshot.data.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(snapshot.data[index].id.toString() + " สถานี" + snapshot.data[index].stationname),
-                    subtitle: Text('Location : ${allLocPoint[index].toString()}'),
-                    trailing: Text(snapshot.data[index].province),
+                    leading: Text(snapshot.data[index].id.toString()),
+                    title: Text('สถานี ${snapshot.data[index].stationname} จ.${snapshot.data[index].province}'),
+                    subtitle: Text('พิกัด : ${allLocPoint[index].toString()}'),
+                    trailing: Text('${snapshot.data[index].rainfallValue} ${snapshot.data[index].rainfallUnit}'),
                   );
                 },
               );
@@ -62,21 +76,8 @@ class _ThirdScreenState extends State<ThirdScreen> {
         onPressed: () {
           print(allLocPoint);
         },
-        child: Icon(Icons.outbond),
+        child: const Icon(Icons.outbond),
       ),
     );
-  }
-
-  Future getData() async {
-    var response = await http.get(Uri.parse(MyConstant.domain));
-    var jsonData = jsonDecode(response.body);
-    List<APIData> apiData = [];
-    for (var u in jsonData) {
-      APIData getData = APIData(u["id"].toInt(), u["geom"], u["descriptio"], DateTime.parse(u["time"]), u["copyright"], u["province"], u["stationnam"], u["rainfall_v"].toInt(),
-          u["rainfall_u"], u["temperatur"].toInt(), u["temperat_1"], u["geojson"]);
-      apiData.add(getData);
-    }
-    // print(apiData.length);
-    return apiData;
   }
 }

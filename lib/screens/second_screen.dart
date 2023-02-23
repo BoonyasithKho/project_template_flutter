@@ -17,7 +17,11 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreenState extends State<SecondScreen> {
   LatLng location = LatLng(13, 101.5);
   bool mapZoom = false;
+  bool isClick = false;
   MapController mapController = MapController();
+  List<String> mapLayer = ['https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'];
+  List<bool> mapLayerTms = [false, false];
+  int mapLayerItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,28 +33,58 @@ class _SecondScreenState extends State<SecondScreen> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: FlutterMap(
-        mapController: mapController,
-        options: MapOptions(
-          center: location,
-          zoom: 6,
-          maxZoom: 20,
-        ),
-        nonRotatedChildren: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            tms: false, // tms = Tile Map Service
-          ),
-          MarkerLayer(
-            markers: [
-              Marker(
-                point: location,
-                builder: (context) => const Icon(
-                  Icons.location_pin,
-                  color: Colors.red,
-                ),
+      body: Stack(
+        children: [
+          FlutterMap(
+            mapController: mapController,
+            options: MapOptions(
+              center: location,
+              zoom: 6,
+              maxZoom: 20,
+            ),
+            nonRotatedChildren: [
+              TileLayer(
+                urlTemplate: mapLayer[mapLayerItem],
+                tms: mapLayerTms[mapLayerItem], // tms = Tile Map Service
+              ),
+              MarkerLayer(
+                markers: [
+                  Marker(
+                    point: location,
+                    builder: (context) => const Icon(
+                      Icons.location_pin,
+                      color: Colors.red,
+                    ),
+                  ),
+                  // Marker(
+                  //   point: LatLng(6.65, 100.083333),
+                  //   builder: (context) => const Icon(
+                  //     Icons.location_pin,
+                  //     color: Colors.green,
+                  //   ),
+                  // ),
+                ],
               ),
             ],
+          ),
+          Positioned(
+            top: 20,
+            right: 20,
+            child: FloatingActionButton.small(
+              heroTag: Null,
+              onPressed: () {
+                print('click');
+                isClick = !isClick;
+                isClick
+                    ? setState(() {
+                        mapLayerItem = 1;
+                      })
+                    : setState(() {
+                        mapLayerItem = 0;
+                      });
+              },
+              child: const Icon(Icons.layers_rounded),
+            ),
           ),
         ],
       ),
