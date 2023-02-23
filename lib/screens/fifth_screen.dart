@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_map/plugin_api.dart';
+import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
+import 'package:project_template_flutter/utils/my_dialog.dart';
 
 import '../model/apidata.dart';
+import '../model/marker_popup.dart';
 import '../utils/my_constant.dart';
 import '../widgets/show_title.dart';
 
@@ -31,7 +34,9 @@ class _FifthScreenState extends State<FifthScreen> {
   // from third screen
   List<APIData> apiData = [];
   List allLocPoint = [];
+  // add in fifth screen
   final List<Marker> markers = [];
+  final PopupController popupLayerController = PopupController();
 
   @override
   void initState() {
@@ -54,86 +59,48 @@ class _FifthScreenState extends State<FifthScreen> {
       Map<String, dynamic> map = jsonDecode(apiData[i].geojson);
       allLocPoint.add(map['coordinates']);
     }
-    // return allLocPoint;
-    // print(allLocPoint);
 
-    // Timer(Duration(seconds: 1), () {
-    getmarkers();
-    // });
-    // for (var l = 0; l < apiData.length; l++) {
-    //   print(apiData[l].rainfallValue.toString());
-    // }
+    Timer(const Duration(seconds: 1), () {
+      getmarkers();
+    });
   }
 
   List<Marker> getmarkers() {
-    // for (var l = 0; l < apiData.length; l++) {
-    //   print(apiData[l].rainfallValue.toString());
-    // }
-    // for (var i in apiData) {
     for (var i = 0; i < apiData.length; i++) {
-      // String allLocPoints = '';
       List allLocPoints = [];
       Map<String, dynamic> map = jsonDecode(apiData[i].geojson);
       allLocPoints = map['coordinates'];
-      // print(apiData[i].geojson.toString());
-      // print('$i >>>>  $allLocPoints');
-      // print('>>>>  $allLocPoints');
 
-      // if (i == i.geojson) {
-      // for (var x in allLocPoints) {
-      // print(x);
-      // print('$i >>>>  $x');
-      setState(() {
-        var pointMarker = LatLng(allLocPoints[1].toDouble(), allLocPoints[0].toDouble());
-        markers.add(
-          Marker(
-            point: pointMarker,
-            // builder: (context) => const Icon(Icons.location_pin, color: Colors.green),
-            builder: (context) => IconButton(
-              icon: const Icon(
-                Icons.location_on,
-                color: Colors.red,
-              ),
-              tooltip: 'Temperature ${apiData[i].temperatureValue} ${apiData[i].temperatureUnit}',
-              onPressed: () {
-                print(i);
-              },
+      setState(
+        () {
+          var pointMarker = LatLng(allLocPoints[1].toDouble(), allLocPoints[0].toDouble());
+          markers.add(
+            Marker(
+              point: pointMarker,
+              builder: (context) => const Icon(Icons.location_pin, color: Colors.green),
+              // builder: (context) {
+              //   return MarkerPopup(
+              //     tooltip:
+              //         'Station name: ${apiData[i].stationname}\nTemperature : ${apiData[i].temperatureValue} ${apiData[i].temperatureUnit}\nRain Volumn : ${apiData[i].rainfallValue}  ${apiData[i].rainfallUnit}',
+              //     onTap: () {},
+              //     child: const Icon(
+              //       Icons.location_on_rounded,
+              //       size: 20,
+              //       color: Colors.blue,
+              //       shadows: [
+              //         BoxShadow(
+              //           color: Colors.black,
+              //           blurRadius: 10.0,
+              //         ),
+              //       ],
+              //     ),
+              //   );
+              // },
             ),
-            // builder: (context) {
-
-            //   return popu
-            // },
-          ),
-        );
-      });
-      // }
-      // }
+          );
+        },
+      );
     }
-
-    //   for (var i in allLocPoint) {
-    //     print(i);
-    //     setState(() {
-    //       var pointMarker = LatLng(i[1].toDouble(), i[0].toDouble());
-    //       //add more markers here to place on map
-    //       markers.add(
-    //         Marker(
-    //           point: pointMarker,
-    //           // builder: (context) => const Icon(Icons.location_pin, color: Colors.red),
-    //           builder: (context) => IconButton(
-    //             icon: const Icon(
-    //               Icons.location_on,
-    //               color: Colors.red,
-    //             ),
-    //             // tooltip: 'Increase volume by 10',
-    //             tooltip: '${pointMarker.latitude}${pointMarker.longitude}',
-    //             onPressed: () {
-    //               print(i);
-    //             },
-    //           ),
-    //         ),
-    //       );
-    //     });
-    //   }
     return markers;
   }
 
@@ -149,51 +116,54 @@ class _FifthScreenState extends State<FifthScreen> {
       ),
       body: Stack(
         children: [
-          createMap(),
-          baseMapSwap(),
+          FlutterMap(
+            mapController: mapController,
+            options: MapOptions(
+              center: location,
+              zoom: 6,
+              maxZoom: 20,
+            ),
+            nonRotatedChildren: [
+              TileLayer(
+                urlTemplate: mapLayer[mapLayerItem],
+                tms: mapLayerTms[mapLayerItem], // tms = Tile Map Service
+              ),
+              MarkerLayer(
+                markers: markers,
+              ),
+            ],
+          ),
+          Positioned(
+            top: 20,
+            right: 20,
+            child: FloatingActionButton.small(
+              heroTag: Null,
+              onPressed: () {
+                print('baseMapSwap click');
+                isClick = !isClick;
+                isClick
+                    ? setState(() {
+                        mapLayerItem = 1;
+                      })
+                    : setState(() {
+                        mapLayerItem = 0;
+                      });
+              },
+              child: const Icon(Icons.layers_rounded),
+            ),
+          ),
         ],
       ),
-    );
-  }
-
-  FlutterMap createMap() {
-    return FlutterMap(
-      mapController: mapController,
-      options: MapOptions(
-        center: location,
-        zoom: 6,
-        maxZoom: 20,
-      ),
-      nonRotatedChildren: [
-        TileLayer(
-          urlTemplate: mapLayer[mapLayerItem],
-          tms: mapLayerTms[mapLayerItem], // tms = Tile Map Service
-        ),
-        MarkerLayer(
-          markers: markers,
-        ),
-      ],
-    );
-  }
-
-  Positioned baseMapSwap() {
-    return Positioned(
-      top: 20,
-      right: 20,
-      child: FloatingActionButton.small(
-        heroTag: Null,
+      floatingActionButton: FloatingActionButton.small(
         onPressed: () {
-          print('baseMapSwap click');
-          isClick = !isClick;
-          isClick
-              ? setState(() {
-                  mapLayerItem = 1;
-                })
-              : setState(() {
-                  mapLayerItem = 0;
-                });
+          setState(() {
+            mapController.move(location, 6.0);
+          });
         },
-        child: const Icon(Icons.layers_rounded),
+        child: Icon(
+          Icons.refresh,
+          color: Theme.of(context).iconTheme.color,
+        ),
       ),
     );
   }

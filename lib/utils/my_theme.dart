@@ -14,7 +14,7 @@ class MyTheme {
       displayLarge: MyConstant().h1StyleDarkTheme(),
       displayMedium: MyConstant().h2StyleDarkTheme(),
       displaySmall: MyConstant().h3StyleDarkTheme(),
-      bodyLarge: MyConstant().b1StyleLightTheme(),
+      bodyLarge: MyConstant().b1StyleDarkTheme(),
     ),
   );
   static final lightTheme = ThemeData(
