@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_template_flutter/screens/fifth_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/fifth_screen.dart';
 import 'screens/first_sceen.dart';
 import 'screens/second_screen.dart';
 import 'screens/third_screen.dart';
@@ -15,8 +15,8 @@ final Map<String, WidgetBuilder> mapRoute = {
   '/firstScreen': (context) => const FirstScreen(),
   '/secondScreen': (context) => const SecondScreen(),
   '/thirdScreen': (context) => const ThirdScreen(),
-  '/fourthScreen': (context) => const FourthScreen(),
-  '/fifthScreen': (context) => const FifthScreen(),
+  '/fourthScreen': (context) => const FifthScreen(),
+  '/fifthScreen': (context) => const FourthScreen(),
 };
 
 void main(List<String> args) {

@@ -50,10 +50,10 @@ class _SecondScreenState extends State<SecondScreen> {
               MarkerLayer(
                 markers: [
                   Marker(
-                    point: location,
+                    point: LatLng(13, 101.5),
                     builder: (context) => const Icon(
                       Icons.location_pin,
-                      color: Colors.red,
+                      color: Colors.green,
                     ),
                   ),
                   // Marker(
@@ -61,6 +61,13 @@ class _SecondScreenState extends State<SecondScreen> {
                   //   builder: (context) => const Icon(
                   //     Icons.location_pin,
                   //     color: Colors.green,
+                  //   ),
+                  // ),
+                  // Marker(
+                  //   point: location,
+                  //   builder: (context) => const Icon(
+                  //     Icons.location_pin,
+                  //     color: Colors.red,
                   //   ),
                   // ),
                 ],

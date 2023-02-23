@@ -25,31 +25,23 @@ class _FirstScreenState extends State<FirstScreen> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  print('Your Name');
-                },
-                child: Container(
-                  color: Colors.yellow,
-                  width: 200,
-                  height: 200,
-                  child: Center(
-                    child: Text('Your Name'),
-                  ),
-                ),
+          GestureDetector(
+            onTap: () {
+              print('Your Name');
+            },
+            child: Container(
+              color: Colors.yellow,
+              width: 200,
+              height: 200,
+              child: const Center(
+                child: Text('Your Name'),
               ),
-            ],
+            ),
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 width: 100,

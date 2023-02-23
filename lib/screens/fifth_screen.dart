@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_map/plugin_api.dart';
-import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
 import 'package:project_template_flutter/utils/my_dialog.dart';
@@ -36,7 +35,6 @@ class _FifthScreenState extends State<FifthScreen> {
   List allLocPoint = [];
   // add in fifth screen
   final List<Marker> markers = [];
-  final PopupController popupLayerController = PopupController();
 
   @override
   void initState() {
