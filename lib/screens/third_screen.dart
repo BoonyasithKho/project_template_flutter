@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:http/http.dart' as http;
 import 'package:project_template_flutter/utils/my_constant.dart';
+import 'package:project_template_flutter/utils/my_dialog.dart';
 
 import '../model/apidata.dart';
 import '../widgets/show_title.dart';
@@ -17,10 +18,12 @@ class ThirdScreen extends StatefulWidget {
 }
 
 class _ThirdScreenState extends State<ThirdScreen> {
+  List<APIData> apiData = [];
+
   Future getData() async {
     var response = await http.get(Uri.parse(MyConstant.domain));
     var jsonData = jsonDecode(response.body);
-    List<APIData> apiData = [];
+    apiData.clear();
     for (var u in jsonData) {
       APIData getData = APIData(u["id"].toInt(), u["geom"], u["descriptio"], DateTime.parse(u["time"]), u["copyright"], u["province"], u["stationnam"], u["rainfall_v"].toInt(),
           u["rainfall_u"], u["temperatur"].toInt(), u["temperat_1"], u["geojson"]);
@@ -44,7 +47,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
       body: FutureBuilder(
         future: getData(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-          if (snapshot.data == null) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Container(
               child: const Center(
                 child: Text('Loading...'),
@@ -75,6 +78,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print(allLocPoint);
+          MyDialog().normalDialog(context, 'จำนวนข้อมูล', '${apiData.length} Records');
         },
         child: const Icon(Icons.outbond),
       ),
