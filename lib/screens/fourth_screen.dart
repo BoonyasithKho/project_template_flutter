@@ -2,16 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
-import 'package:project_template_flutter/utils/my_dialog.dart';
 
-import '../model/apidata.dart';
+import '../model/apidata_model.dart';
 import '../utils/my_constant.dart';
-import '../widgets/show_markerpopup.dart';
 import '../widgets/show_title.dart';
 
 class FourthScreen extends StatefulWidget {

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:project_template_flutter/utils/my_constant.dart';
 import 'package:project_template_flutter/widgets/show_image.dart';
 

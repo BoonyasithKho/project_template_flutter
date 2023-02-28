@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../widgets/show_title.dart';
-// import 'package:latlong2/latlong.dart' as latLng;
 
 class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key});

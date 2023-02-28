@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
-import '../utils/my_theme.dart';
 
 class ShowMarkerPopup extends StatefulWidget {
   final Widget child;
