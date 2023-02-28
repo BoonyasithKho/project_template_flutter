@@ -11,7 +11,6 @@ class FifthScreen extends StatefulWidget {
 }
 
 class _FifthScreenState extends State<FifthScreen> {
-  var loadingPercentage = 0;
   late final WebViewController controller;
 
   @override
