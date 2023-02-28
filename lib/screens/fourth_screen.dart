@@ -10,8 +10,8 @@ import 'package:http/http.dart' as http;
 import 'package:project_template_flutter/utils/my_dialog.dart';
 
 import '../model/apidata.dart';
-import '../model/marker_popup.dart';
 import '../utils/my_constant.dart';
+import '../widgets/show_markerpopup.dart';
 import '../widgets/show_title.dart';
 
 class FourthScreen extends StatefulWidget {
@@ -77,6 +77,24 @@ class _FourthScreenState extends State<FourthScreen> {
             Marker(
               point: pointMarker,
               builder: (context) => const Icon(Icons.location_pin, color: Colors.green),
+              // builder: (context) {
+              //   return ShowMarkerPopup(
+              //     tooltip:
+              //         'Station name: ${apiData[i].stationname}\nTemperature : ${apiData[i].temperatureValue} ${apiData[i].temperatureUnit}\nRain Volumn : ${apiData[i].rainfallValue}  ${apiData[i].rainfallUnit}',
+              //     onTap: () {},
+              //     child: const Icon(
+              //       Icons.location_on_rounded,
+              //       size: 20,
+              //       color: Colors.blue,
+              //       shadows: [
+              //         BoxShadow(
+              //           color: Colors.black,
+              //           blurRadius: 10.0,
+              //         ),
+              //       ],
+              //     ),
+              //   );
+              // },
             ),
           );
         },

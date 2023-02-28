@@ -4,18 +4,18 @@ import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../utils/my_theme.dart';
 
-class MarkerPopup extends StatefulWidget {
+class ShowMarkerPopup extends StatefulWidget {
   final Widget child;
   final String? tooltip;
   final Function onTap;
 
-  const MarkerPopup({super.key, required this.child, this.tooltip, required this.onTap});
+  const ShowMarkerPopup({super.key, required this.child, this.tooltip, required this.onTap});
 
   @override
-  State<MarkerPopup> createState() => _MarkerPopupState();
+  State<ShowMarkerPopup> createState() => _ShowMarkerPopupState();
 }
 
-class _MarkerPopupState extends State<MarkerPopup> {
+class _ShowMarkerPopupState extends State<ShowMarkerPopup> {
   final key = GlobalKey();
   @override
   Widget build(BuildContext context) {
