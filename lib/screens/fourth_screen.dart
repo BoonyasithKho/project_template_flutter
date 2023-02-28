@@ -109,6 +109,15 @@ class _FourthScreenState extends State<FourthScreen> {
                 urlTemplate: mapLayer[mapLayerItem],
                 tms: mapLayerTms[mapLayerItem], // tms = Tile Map Service
               ),
+              TileLayer(
+                wmsOptions: WMSTileLayerOptions(
+                  baseUrl:
+                      'https://gistdaportal.gistda.or.th/data/rest/services/GFlood/GFlood_Inno_WMS_FloodArea/MapServer/export?dpi=96&transparent=true&format=png32&bboxSR=102100&imageSR=102100&f=image&layers=0',
+                ),
+                minZoom: 6,
+                opacity: 0.5,
+                backgroundColor: Colors.transparent,
+              ),
               MarkerLayer(
                 markers: markers,
               ),
