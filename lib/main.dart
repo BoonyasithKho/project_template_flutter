@@ -40,6 +40,14 @@ class MyApp extends StatelessWidget {
           theme: MyTheme.lightTheme,
           darkTheme: MyTheme.darkTheme,
           initialRoute: MyConstant.routeLanding,
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaleFactor: 1.0,
+              ),
+              child: child!,
+            );
+          },
         );
       });
 }
