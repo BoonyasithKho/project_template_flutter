@@ -2,10 +2,6 @@
 
 A template Flutter project.
 
-## Getting Started
+In training_branch, trainee must to create mobile application using Flutter framework.
 
-This template is a starting project for a Flutter application.
-
-You can copy item in lib and assets folder.
-
-In each folder has template folder for use in project.
+![[alt text](http://url/to/img.png)](https://github.com/BoonyasithKho/project_template_flutter/blob/training_branch_solve/assets/images/Output_TrainingProject.png)
